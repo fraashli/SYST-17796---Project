@@ -112,4 +112,23 @@ public class Deck {
       }
       return occurences;
    }
+   
+   public int getSize()
+   {
+      return _count;
+   }
+   public String toString()
+   {
+      if(_count != 0)
+      {
+         String result = "User Deck: \n";
+         for(int i = 0; i<_count; i++)
+         {  
+            result = result + _hand[i] + "\n";
+         }
+         return result; 
+      }
+      return "Empty Hand"; 
+   }  
 }
+
