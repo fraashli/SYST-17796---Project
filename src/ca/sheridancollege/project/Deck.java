@@ -15,4 +15,10 @@ public class Deck {
    private Card[] _hand;
    private static final int Storage = 52;
    private static Random random = new Random();
+   
+   public Deck()
+   {
+      _hand = new Card[Storage];
+      _count = 0;
+   }
 }
