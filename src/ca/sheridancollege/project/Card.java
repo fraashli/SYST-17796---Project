@@ -16,9 +16,9 @@ public abstract class Card {
     private int numValue;
     private int numSuit;
     
-    public Card(int value, int suit){
-        numValue = value;
-        numSuit = suit;
+    public Card(int n_value, int n_suit){
+        numValue = n_value;
+        numSuit = n_suit;
     }
     
     
@@ -29,8 +29,54 @@ public abstract class Card {
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
     
-//    @Override
-//    public String toString(){
-//    }
-//    
+    @Override
+    public String toString(){
+        String value = "";
+        String suit = "";
+        
+        if(numValue == 1){
+            value = "Ace of";
+        }else if (numValue > 10 ){
+            switch(numValue){
+                case 11:
+                    value = "Jack of ";
+                    break;
+                case 12:
+                    value = "Queen of ";
+                    break;
+                case 13:
+                    value = "King of ";
+                    break;
+            }
+        }else{
+            value = ""+numValue+"of ";
+        }
+        
+        if(numValue > 13 || numValue <= 0){
+            System.out.println("Invalid card value");
+        }
+        
+        
+        if(numSuit >= 1 && numSuit <= 4){
+            switch(numSuit){
+                case 1:
+                    suit = "Clubs";
+                    break;
+                case 2:
+                    suit = "Diamonds";
+                    break;
+                case 3:
+                    suit = "Hearts";
+                    break;
+                case 4:
+                    suit = "Spades";
+                    break;                 
+            }
+        }else{
+            System.out.println("Invalid suit number.");
+        }
+        
+        return value + suit;
+    }
+    
 }
