@@ -21,6 +21,13 @@ public abstract class Card {
         numSuit = n_suit;
     }
     
+    public int getValue(){
+        return numSuit;
+    }
+    
+    public int getSuit(){
+        return numValue;
+    }
     
     //default modifier for child classes
     
