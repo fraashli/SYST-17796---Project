@@ -12,7 +12,7 @@ package ca.sheridancollege.project;
  * @author Sivagama
  * @modifier Ashli Francis
  */
-public abstract class Card {
+public  class Card {
     private int numValue;
     private int numSuit;
     
