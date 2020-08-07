@@ -49,4 +49,43 @@ public class Deck {
       _hand[_count] = card;
       _count++;
    }
+   
+    public Card deleteValue(int value)
+   {
+      Card temp;
+      Card deleted;
+      for(int i = 0; i<_count; i++)
+      {
+         temp = _hand[i];
+         if(temp.getValue() == value)
+         {
+            deleted = temp;
+            _hand[i] = _hand[_count-1];
+            _count--;
+            return deleted;
+         }
+      }   
+      return null;      
+   }
+   public Card deleteAnyCard()
+   {
+      if(_count == 0)
+      {
+         return null;
+      }else
+      {  
+         int randoIx = random.nextInt(_count);
+         Card temp = _hand[randoIx];
+         if(randoIx != _count-1)
+         {
+            _hand[randoIx] = _hand[_count-1];
+            _count--;
+         }else
+         {
+            _hand[_count-1] = null;
+            _count--;
+         }
+         return temp;
+      }
+   }
 }
