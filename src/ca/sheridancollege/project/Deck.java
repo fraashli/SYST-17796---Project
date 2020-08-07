@@ -88,4 +88,28 @@ public class Deck {
          return temp;
       }
    }
+   
+   public int checkBookBegginingDeal() //CHECKS FOR BOOK ON OPENING DEAL
+   {
+      for(int i = 0; i<4 ; i++)
+      {
+         if(getCount(_hand[i].getValue()) == 4)
+         {
+            return _hand[i].getValue();
+         }
+      }
+      return 0;
+   }
+   public int getCount(int value)
+   {
+      int occurences = 0;
+      for(int i = 0; i<_count;i++)
+      {
+         if(_hand[i].getValue() == value)
+         {
+            occurences++;
+         }
+      }
+      return occurences;
+   }
 }
