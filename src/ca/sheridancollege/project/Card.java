@@ -85,30 +85,30 @@ public  class Card {
         
         return value + suit;
     }
-    //Maybe the suit should be an array, holding all the suits that they 
-    //have in hand(for both player and ai)
-    //Array version
-    public void compareSuitA(int[] playerSuit , int[] aiSuit){
-       int size1 = playerSuit.length;
-       int size2 = aiSuit.length;
-       for(int i = 0; i < size1; i++ ){
-           for(int j = 0; j < size2; j++){
-               if(playerSuit[i] == aiSuit[j]){
-                   
-               }
-           }
-           
-       }
-    }
-    
-    //Non - Array Version
-    public void compareSuit(int playerSuit, int aiSuit){
-        if(playerSuit == aiSuit){
-            System.out.println("Yay! is a match ");
-            
-            //getPlayer would be the player who asks for a match 
-            //System.out.println(getPlayer()+"has: "+toString()+"");
-        }
-    }
-    
+//    //Maybe the suit should be an array, holding all the suits that they 
+//    //have in hand(for both player and ai)
+//    //Array version
+//    public void compareSuitA(int[] playerSuit , int[] aiSuit){
+//       int size1 = playerSuit.length;
+//       int size2 = aiSuit.length;
+//       for(int i = 0; i < size1; i++ ){
+//           for(int j = 0; j < size2; j++){
+//               if(playerSuit[i] == aiSuit[j]){
+//                   
+//               }
+//           }
+//           
+//       }
+//    }
+//    
+//    //Non - Array Version
+//    public void compareSuit(int playerSuit, int aiSuit){
+//        if(playerSuit == aiSuit){
+//            System.out.println("Yay! is a match ");
+//            
+//            //getPlayer would be the player who asks for a match 
+//            //System.out.println(getPlayer()+"has: "+toString()+"");
+//        }
+//    }
+//    
 } 
