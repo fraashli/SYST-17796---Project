@@ -10,9 +10,18 @@ package ca.sheridancollege.project;
  * enough to be instantiated for any Card game. Students wishing to add to the code 
  * should remember to add themselves as a modifier.
  * @author Sivagama
+ * @modifier Ashli Francis
  */
-public abstract class Card 
-{
+public abstract class Card {
+    private int numValue;
+    private int numSuit;
+    
+    public Card(int value, int suit){
+        numValue = value;
+        numSuit = suit;
+    }
+    
+    
     //default modifier for child classes
     
     /**
@@ -20,7 +29,8 @@ public abstract class Card
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
     
-    @Override
-    public abstract String toString();
-    
+//    @Override
+//    public String toString(){
+//    }
+//    
 }
