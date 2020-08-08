@@ -18,6 +18,11 @@ import java.util.Scanner;
  */
 public class GroupOfCards 
 {
+    private Deck player;
+    private Deck declareWinner;
+    private Deck takeCard;
+    private boolean GameOver;
+    private Deck computerTurn;
    
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
