@@ -18,11 +18,12 @@ import java.util.Scanner;
  */
 public class GoFish 
 {
-    private Deck player;
+    private Deck playerTurn;
     private Deck declareWinner;
     private Deck takeCard;
     private boolean GameOver;
     private Deck computerTurn;
+    
    
    
     //The group of cards, stored in an ArrayList
@@ -33,7 +34,7 @@ public class GoFish
     {
         size = givenSize;
         takeCard=new Deck();
-        player=new Deck();
+        playerTurn=new Deck();
         computerTurn= new Deck();
         
     }
@@ -59,7 +60,7 @@ public class GoFish
         return size;
     }
 public void playerTurn(){
-    intializeUserhand();
+    
 }
     /**
      * @param givenSize the max size for the group of cards
@@ -68,8 +69,6 @@ public void playerTurn(){
         size = givenSize;
     }
 
-    private void intializeUserhand() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }//end class
