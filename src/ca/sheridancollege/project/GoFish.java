@@ -29,6 +29,7 @@ public class GoFish
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
+    private boolean playerHand;
     
     public GoFish(int givenSize)
     {
@@ -60,6 +61,17 @@ public class GoFish
         return size;
     }
 public void playerTurn(){
+    boolean retryUser=false;
+    do{
+        retryUser=false;
+        boolean win = false;
+        if(!win)
+        {
+            Card takecard=null;
+            System.out.println(playerHand);
+            System.out.println("");
+        }
+    }
     
 }
     /**
@@ -69,6 +81,9 @@ public void playerTurn(){
         size = givenSize;
     }
 
-   
+   public void playGOFish()
+   {
+       
+   }
     
 }//end class
