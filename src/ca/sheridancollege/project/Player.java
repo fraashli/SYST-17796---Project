@@ -1,3 +1,4 @@
+package ca.sheridancollege.project;
 import java.util.Scanner;
 
 public class Player
