@@ -1,102 +1,129 @@
-/**
- * SYST 17796 Project Winter 2020 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
-package ca.sheridancollege.project;
+import java.util.Scanner;
 
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- * @author Sivagama
- */
-public abstract class Player 
-{
-    protected ArrayList<Card> hand = new ArrayList<Card>();
-    private int numBooks;
- 
-    public Player()
-    {
-        for(int i=0;i<8;i++)
-            fish();
-    }
- 
-    public boolean hasGiven(Card cType)
-    {
-        return hand.contains(cType);
-    }
+public class Player
+{   
+   public static Scanner input = new Scanner(System.in);
 
-    public  void addScore(int Score){
-        totalScore += score;
-    }
-    public ArrayList<Card> giveAll(Card cType)
-    {
-        ArrayList<Card> x = new ArrayList<Card>(); //Complicated because simply taking the cards as they
-        for(int i=0;i<hand.size();i++)            //are found would mess up the traversing of the hand
-            if (hand.get(i) == cType)
-              x.add(hand.get(i));
-        for(int c=0;c<x.size();c++)
-            hand.remove(cType);
-        return x;
-    }
- 
-    protected boolean addCards(Card cType)
-    {
-        int tmp = 0;
-        if (this instanceof HumanPlayer)
-            tmp = 1;
-        Player other = GoFish.Players[tmp];
- 
-        //Used for the computer's strategy//
-        if (tmp==1)
-            ((AIPlayer) other).queries.add(cType);
-        //                               //
- 
-        if (other.hasGiven(cType))
-        {
-            for(Card c: other.giveAll(cType))
-                hand.add(c);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
- 
-    protected void fish()
-	    {
-	        if (GoFish.deckSize() > 0)
-	        	hand.add(GoFish.draw());
-	        else
-	        	System.out.println("But that's impossible since the deck is empty.");
-    }
- 
-    public int getNumBooks()
-    {
-        return numBooks;
-    }
- 
-    protected Card removeCards()
-    {
-        for(Card c: hand) //Not very elegant!
-        {
-            int num = 0;
-            for(Card d: hand)
-              if (c == d)
-                  num++;
-            if (num == 4)
+   public static void main(String[]args)
+   {
+      boolean repProgram = true;
+      int menu;
+      do
+      {
+         System.out.println("\n\n\n[1] Test Deck Hand Class\n[2] Play Go Fish\n[3] Exit");
+         menu = input.nextInt();
+         switch(menu)
+         {
+            case 1:
+               testDecks();
+               break;
+            case 2:
+               GoFish game = new GoFish();
+               break;
+            case 3:
+               repProgram = false;
+               break;
+         }
+
+      }while(repProgram);
+      System.out.println("Goodbye!");
+   }
+
+
+   public static void testDecks()
+   {
+      boolean repTest = true;
+      int hand;
+      Deck fullDeck;
+      Deck emptyHand;
+      do
+      {
+         System.out.println("Which Deck would you like to manipulate?\n" +
+                            "[1] Empty Hand\n[2] Full Deck\nEnter the Corresponding number");
+         hand = input.nextInt();
+         switch(hand)
+         {
+            case 1:
+               emptyHand = new Deck();
+               repTest = testDeck(emptyHand);
+               break;
+            case 2:
+               fullDeck = new Deck();
+               fullDeck.fillDeck();
+               repTest = testDeck(fullDeck);
+               break;
+         }
+      }while(repTest);
+   }
+
+   public static boolean testDeck(Deck deck)
+   {
+       Card temp;
+       int menu;
+       boolean repDeckTest = true;
+       do
+       {
+            System.out.println("[1] Insert Card\n[2] Delete Card Value\n[3] Delete Random Card\n" +
+                               "[4] Test number times a specific value Occurs in Hand\n" +
+                               "[5] Print Total number of Cards in Deck\n" +
+                               "[6] Display Entire Deck hand\n" +
+                               "[7] Change/Restart Decks\n[8] Exit Test");
+            menu = input.nextInt();
+            switch(menu)
             {
-                for(int i=0;i<4;i++)
-                    hand.remove(c);
-                numBooks++;
-                return c;
+               case 1:
+                  int suit, value;
+                  System.out.println("Please enter the Card ID you'd like to insert\n" +
+                                     "Both Value and Suit are represented by Integers\nSuits:\n" +
+                                     "\t1 = Clubs\n\t2 = Diamonds\n\t3 = Hearts\n\t4 = Spades\n" +
+                                     "Enter the Integer Corresponding to the Suit");
+                  suit = input.nextInt();
+                  System.out.println("Okay, now enter the Value for the Card as an integer.");
+                  value = input.nextInt();
+                  Card insert = new Card(value, suit);
+                  deck.insertCard(insert);
+                  System.out.println("Card inserted");
+                  break;
+               case 2:
+                  int deleteVal;
+                  System.out.println("Which card Value would you like to search and Delete?\n" +
+                                     "Enter the integer Representation of the Value");
+                  deleteVal = input.nextInt();
+                  Card deleteCard;
+                  deleteCard = deck.deleteValue(deleteVal);
+                  if(deleteCard == null)
+                     System.out.println("Card not found.");
+                  else
+                     System.out.println("Card Deleted: " + deleteCard);
+                  break;
+               case 3:
+                  Card randomDelete;
+                  randomDelete = deck.deleteAnyCard();
+                  if(randomDelete == null)
+                     System.out.println("Empty Hand");  
+                  else
+                     System.out.println("Card deleted : " + randomDelete);
+                  break;
+               case 4:
+                  System.out.println("Which value would you like Search for?");
+                  int searchVal = input.nextInt();
+                  System.out.println("That value occurs " + deck.getCount(searchVal) +
+                                     " times in the Deck Hand");
+                  break;
+               case 5:
+                  System.out.println("Total number of Cards in Deck : " + deck.getSize());
+                  break;
+               case 6:
+                  System.out.println(deck);
+                  break;
+               case 7:
+                  repDeckTest = false;
+                  return true;
+               case 8:
+                  repDeckTest = false;
+                  return false;
             }
-        }
-        return null;
- 
- 
-    }
- 
-    public abstract void haveTurn();
-    
-}
+       }while(repDeckTest);
+       return true;
+   }
+} 
