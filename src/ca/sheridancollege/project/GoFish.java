@@ -18,6 +18,7 @@ import java.util.Scanner;
  */
 public class GoFish 
 {
+    public static Scanner input = new Scanner(System.in);
     private Deck playerTurn;
     private Deck declareWinner;
     private Deck takeCard;
