@@ -1,4 +1,4 @@
-/*
+*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,10 +11,16 @@ package ca.sheridancollege.project;
  */
 import java.util.Random;
 public class Deck {
+
+    static Deck deleteAnycard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    private int _count;
    private Card[] _hand;
    private static final int Storage = 52;
    private static Random random = new Random();
+    boolean getValue;
+   boolean deleteValue;
    
    public Deck()
    {
@@ -130,5 +136,20 @@ public class Deck {
       }
       return "Empty Hand"; 
    }  
-}
 
+    boolean getValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    int getCount(boolean value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void deleteAnyCard(Card deleteValue) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Card getValue(Object Card) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}

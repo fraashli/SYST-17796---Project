@@ -111,4 +111,14 @@ public  class Card {
 //        }
 //    }
 //    
-} 
+
+    Card deleteAnyCard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+    int getSize() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
