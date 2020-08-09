@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class GoFish 
 {
-    public static Scanner input = new Scanner(System.in);
+   public static Scanner input = new Scanner(System.in);
     private Deck playerTurn;
     private Deck declareWinner;
     private Deck takeCard;
@@ -31,6 +31,9 @@ public class GoFish
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
     private boolean playerHand;
+    public boolean value, deletevalue; 
+    public boolean deleteValue;
+    private Object player;
     
     public GoFish(int givenSize)
     {
@@ -61,6 +64,7 @@ public class GoFish
     public int getSize() {
         return size;
     }
+    
 public void playerTurn(){
     boolean retryUser=false;
     do{
@@ -71,11 +75,49 @@ public void playerTurn(){
             Card takecard=null;
             System.out.println(playerHand);
             System.out.println("");
+            int value=input.nextInt();
         }
+       
+            
+        }while(playerTurn.getCount(size)==0);
+    {
+    System.out.println("That card is not present in your deck" +"Please enter in another value");
+        int value = input.nextInt();
+            
     }
+    int match=playerTurn.getCount(size);
+    if(match==0){
+        System.out.println("Go Fish");
+        takeCard=Deck.deleteAnycard();
+        if(takeCard.getValue()==value)
+        {
+            Card Card = null;
+            playerTurn.insertCard(Card);
+            retryUser=true;
+            System.out.println("Card given:"+takeCard);
+            System.out.println("Lucky Choice!");
+               
+        }
+        else{
+            System.out.println("Card Given");
+            Card Card=null;
+             playerTurn.insertCard(Card);
+             
+        
+       }
+        int afterDeckCount=playerTurn.getCount(takeCard.getValue);
+        if(afterDeckCount==4){
+            for(int i=0;i<4;i++){
+                player.deleteValue(takeCard.getValue());
+                
+            }
+            
+        }
+    } 
+    
     
 }
-    /**
+   /**
      * @param givenSize the max size for the group of cards
      */
     public void setSize(int givenSize) {
